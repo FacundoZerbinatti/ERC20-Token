@@ -1,0 +1,118 @@
+{
+	"compiler": {
+		"version": "0.6.6+commit.6c089d02"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "Clientes",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "tokens_comprados",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_numTokens",
+						"type": "uint256"
+					}
+				],
+				"name": "CompraTokens",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "balanceOf",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address payable",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"methods": {}
+		},
+		"userdoc": {
+			"methods": {}
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"DISNEY/disney.sol": "Disney"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"DISNEY/ERC20.sol": {
+			"keccak256": "0xda836ce9124517749e0688f32b13d132053dae72f2bade03ca69646a158e7adb",
+			"urls": [
+				"bzz-raw://79c630ff2f3ec137754f1acf9ea3c11a2c3aab1b2aa0f81add70c927a991c334",
+				"dweb:/ipfs/QmQmA4UJjACWrT9wvnw38yZyRSrjavW1n7W2dQzjJ1cmYN"
+			]
+		},
+		"DISNEY/SafeMath.sol": {
+			"keccak256": "0x10b026f5bf6336222f045103d95b94c408fcd4b36095222431626663f519da6a",
+			"urls": [
+				"bzz-raw://cb82567f03c95c1518b6d09700323ef2d11bcf587a23f220b5aef4cd0cdf433f",
+				"dweb:/ipfs/QmURQ56waPNQnLAeQYVDui2RJnC5fEKw9v2rA6L4PZhSsb"
+			]
+		},
+		"DISNEY/disney.sol": {
+			"keccak256": "0x368636cc0fad32b5af47c24dec1846a15aa60621f7637c6ce8de4b30cbe732f7",
+			"urls": [
+				"bzz-raw://41da6a675050e3a5a562cca89779f881a45c05ecb0c15ccdab1138260c9fe845",
+				"dweb:/ipfs/QmUc6J8aCkdvaYYDk8NJ9VpVXSrNiwskY7ZTSAjBPyc75y"
+			]
+		}
+	},
+	"version": 1
+}

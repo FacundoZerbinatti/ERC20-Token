@@ -1,0 +1,60 @@
+pragma solidity >=0.4.4 <0.7.0;
+pragma experimental ABIEncoderV2;
+import "./ERC20.sol";
+
+contract Disney {
+
+    //-------------------------------- DECLARACIONES INICIALES --------------------------------
+
+    // Instancia del contrato token
+    ERC20Basic private token;
+
+    // Direccion de Disney (owner)
+    address payable public owner;
+
+    // Constructor 
+    constructor () public {
+        token = new ERC20Basic(10000); // cantidad de monedas que se van a crear 10.000
+        owner = msg.sender;            // msg.sender es el user que despliega el S.C
+    }
+
+    // Estructura de datos para almacenar los clientes de Disney
+    struct cliente {
+        uint tokens_comprados;
+        string [] atracciones_disfrutadas;
+    }
+
+    //Mapping para el registro de clientes
+    mapping (address => cliente) public Clientes;
+
+    //-------------------------------- GESTION DE TOKENS --------------------------------
+
+    // Funcion para establecer el precio de un Token
+    function PrecioTokens(uint _numTokens) internal pure returns (uint) {
+        // Conversion de Tokens a Ethers: 1Token -> 0.1 Ether
+        return _numTokens*(0.1 ether);
+    }
+
+    // Funcion para comprar comprar Tokens en Disney
+    function CompraTokens(uint _numTokens) public payable {
+        // Establecer el precio de los Tokens
+        uint coste = PrecioTokens(_numTokens);
+        // Se evalua si el cliente tiene el dinero para comprar Tokens
+        require (msg.value >= coste, "Compra menos Tokens o paga con mas ethers.");
+        // Diferencia o vuelto de lo que el cliente paga
+        uint returnValue = msg.value - coste;
+        // Disney retorna la cantidad de ethers al cliente
+        msg.sender.transfer(returnValue);
+        // Obtencion del numero de tokens disponibles
+        uint Balance = balanceOf();
+        require(_numTokens <= Balance, "Compra un numero menor de Tokens");
+        // Se tranfiere el numero de tokens al cliente
+        token.transfer(msg.sender, _numTokens);
+        // Registro de tokens comprados
+        Clientes[msg.sender].tokens_comprados = _numTokens;
+    }
+
+    function balanceOf() public view returns (uint) {
+        return token.balanceOf(address(this));
+    }
+}
